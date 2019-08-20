@@ -1,5 +1,10 @@
 com\datoukeji\gmall\bean\BaseCatalog3.class
+com\datoukeji\gmall\bean\SpuInfo.class
+com\datoukeji\gmall\bean\SpuSaleAttr.class
+com\datoukeji\gmall\bean\BaseSaleAttr.class
 com\datoukeji\gmall\bean\BaseAttrInfo.class
 com\datoukeji\gmall\bean\BaseCatalog2.class
+com\datoukeji\gmall\bean\SpuImage.class
+com\datoukeji\gmall\bean\SpuSaleAttrValue.class
 com\datoukeji\gmall\bean\BaseAttrValue.class
 com\datoukeji\gmall\bean\BaseCatalog1.class

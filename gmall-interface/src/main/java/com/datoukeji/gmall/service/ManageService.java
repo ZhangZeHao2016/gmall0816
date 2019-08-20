@@ -1,9 +1,6 @@
 package com.datoukeji.gmall.service;
 
-import com.datoukeji.gmall.bean.BaseAttrInfo;
-import com.datoukeji.gmall.bean.BaseCatalog1;
-import com.datoukeji.gmall.bean.BaseCatalog2;
-import com.datoukeji.gmall.bean.BaseCatalog3;
+import com.datoukeji.gmall.bean.*;
 
 import java.util.List;
 
@@ -18,9 +15,23 @@ public interface ManageService {
 
     List<BaseCatalog3> getCatalog3ListByCatalog2Id(String catalog2Id);
 
-    List<BaseAttrInfo> getattrInfoListByCatalog3Id(String catalog3Id);
+    List<BaseAttrInfo> getAttrInfoListByCatalog3Id(String catalog3Id);
 
     void saveAttrInfo(BaseAttrInfo baseAttrInfo);
 
     BaseAttrInfo getAttrValueList(String attrId);
+
+    List<SpuInfo> getAllList(String catalog3Id);
+
+    List<SpuInfo> getAllList(SpuInfo spuInfo);
+
+    List<BaseSaleAttr> getBaseSaleAttrList();
+
+    void saveSpuInfo(SpuInfo spuInfo);
+
+    List<SpuImage> spuImageList(String spuId);
+
+    List<SpuSaleAttr> spuSaleAttrList(String spuId);
+
+    void saveSkuInfo(SkuInfo skuInfo);
 }
