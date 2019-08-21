@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.datoukeji.gmall.manage.mapper.SkuSaleAttrValueMapper">
+    <select id="getSkuSaleAttrValueListBySpu" resultMap="skuSaleAttrValueMap">
+        SELECT
+            sv.sku_id,
+            sv.sale_attr_value_name,
+            sale_attr_value_id
+            FROM sku_sale_attr_value sv,sku_info si
+            WHERE sv.sku_id=si.id AND si.spu_id=#{spuId}
+            ORDER BY si.id ,sv.sale_attr_id
+    </select>
+    <resultMap id="skuSaleAttrValueMap" type="com.datoukeji.gmall.bean.SkuSaleAttrValue" autoMapping="true">
+        <id property="id" column="id"></id>
+
+    </resultMap>
+</mapper>

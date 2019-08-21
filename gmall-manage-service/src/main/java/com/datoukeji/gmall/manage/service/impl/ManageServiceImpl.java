@@ -227,7 +227,7 @@ public class ManageServiceImpl implements ManageService{
      */
     @Override
     public List<SpuSaleAttr> spuSaleAttrList(String spuId) {
-        return spuSaleAttrMapper.getSpuSaleAttrListBySpyId(spuId);
+        return spuSaleAttrMapper.getSpuSaleAttrListBySpuId(spuId);
     }
 
     /**
@@ -264,5 +264,40 @@ public class ManageServiceImpl implements ManageService{
         }
 
 
+    }
+
+    /**
+     * 通过skuid获取skuinfo信息
+     * @param skuId
+     * @return
+     */
+    @Override
+    public SkuInfo getSkuInfo(String skuId) {
+        SkuInfo skuInfo = skuInfoMapper.selectByPrimaryKey(skuId);
+        SkuImage skuImage = new SkuImage();
+        skuImage.setSkuId(skuId);
+        List<SkuImage> skuImageList = skuImageMapper.select(skuImage);
+        skuInfo.setSkuImageList(skuImageList);
+        return skuInfo;
+    }
+
+    /**
+     * 根据skuid,spuid查询销售属性集合
+     * @param skuInfo
+     * @return
+     */
+    @Override
+    public List<SpuSaleAttr> getSpuAttrValueList(SkuInfo skuInfo) {
+        return spuSaleAttrMapper.getSpuSaleAttrListBySpuIdAndSkuId(skuInfo.getId(),skuInfo.getSpuId());
+    }
+
+    /**
+     * 通过spuid查询所有spu下所有的sku中的属性值
+     * @param spuId
+     * @return
+     */
+    @Override
+    public List<SkuSaleAttrValue> getSkuSaleAttrValueListBySpu(String spuId) {
+        return skuSaleAttrValueMapper.getSkuSaleAttrValueListBySpu(spuId);
     }
 }

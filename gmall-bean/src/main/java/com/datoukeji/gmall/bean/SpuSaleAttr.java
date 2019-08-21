@@ -28,6 +28,9 @@ public class SpuSaleAttr implements Serializable {
     String saleAttrName;
 
     @Transient
+    String isChecked;
+
+    @Transient
     private List<SpuSaleAttrValue> spuSaleAttrValueList;
 
 
